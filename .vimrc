@@ -1,3 +1,22 @@
+" ------------------------------------------------------------------------------x"
+"
+" Archivo: ~/.vimrc
+" Descrip: Mi archivo personal de configuración de Vim
+"
+" Autor: Gregorio Espadas (@gespadas) <gregorio@gespadas.com> (base)
+" Adecuaciones: @continum4
+"
+" Configuración base tomada tomada de https://github.com/gespadas/mis-configuraciones/blob/master/vimrc, gracias al 
+" aporte de Gregorio Espadas.
+"
+" Notas: Cada opción viene acompañada con una breve descripción, recomiendo
+" consultar la ayuda (:help mi-duda) para comprender a detalle la
+" finalidad y alcance de cada una de ellas.
+"
+" Última fecha de modificación: 2014-08-15
+"
+" ------------------------------------------------------------------------------
+
 filetype plugin on                " Habilitar la detección del tipo de archivo
 syntax enable                     " Habilitar el resaltado de sintaxis
 
@@ -127,6 +146,9 @@ nmap <leader>w :write<cr>
 " Cerrar fácilmente el buffer actual, guardando los cambios previamente
 map <leader>d :write<cr>:bdelete<cr>
 
+" Comando only
+map <leader>z :only<cr>
+
 " Toggle NERDTree
 map <F12> :NERDTreeToggle<CR>
 
@@ -183,12 +205,34 @@ set path+=~/.config/openbox/**
 " ------------------------------------------------------------------------------
 
 " Abreviaciones para HTML
-iab <a <a href="" title=""></a><ESC>4F"a<C-R>=Eatchar('\s')<CR>
-iab <p <p></p><ESC>3hi<C-R>=Eatchar('\s')<CR>
+" iab <a <a href="" title=""></a><ESC>4F"a<C-R>=Eatchar('\s')<CR>
+" iab img <img src="" alt="" /><ESC>4F"a<C-R>=Eatchar('\s')<CR>
+" iab <p <p></p><ESC>3hi<C-R>=Eatchar('\s')<CR>
+iab alt= alt=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab class= class=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab colspan= colspan=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab href= href=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab id= id=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab name= name=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab rel= rel=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab src= src=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab style= style=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab target= target=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab title= title=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab type= type=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab placeholder= placeholder=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab value= value=""<ESC>i<C-R>=Eatchar('\s')<CR>
+iab readonly= readonly="readonly"<ESC>i<C-R>=Eatchar('\s')<CR>
+iab selected= selected="selected"<ESC>i<C-R>=Eatchar('\s')<CR>
+iab disabled= disabled="disabled"<ESC>i<C-R>=Eatchar('\s')<CR>
+iab typeb= type="button"
+iab typeh= type="hidden"
+iab types= type="submit"
+iab typet= type="text"
+iab ` ``<ESC>i<C-R>=Eatchar('\s')<CR>
 
-" Abreviaciones para PHP
+" Abreviaciones para PHP y HTML
 iab /** /**<CR><CR><BS>/<Up><Space>
-
 
 " ------------------------------------------------------------------------------
 " Plugins
@@ -196,9 +240,6 @@ iab /** /**<CR><CR><BS>/<Up><Space>
 
 " Pathogen - https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
-
-" Markdown Vim Mode - https://github.com/plasticboy/vim-markdown
-let g:vim_markdown_initial_foldlevel=2
 
 " Emmet configuration
 let g:user_emmet_mode='n'    "only enable normal mode functions.

@@ -92,7 +92,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 "let g:airline_theme = 'laederon'
-
+let g:Powerline_symbols = 'fancy'
+ 
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0" 
 
 " ------------------------------------------------------------------------------
 " Configuración de las tabulaciones e indentación
@@ -105,7 +110,7 @@ set autoindent                    " Indentación automática
 set tabstop=4                     " Espacios usados por <Tab>
 set shiftwidth=4                  " Espacios usados por la auto indentación
 set softtabstop=4                 " Espacios contados por <Tab> en ediciones
-set expandtab                     " Usa espacios en lugar de <Tab>s
+"set expandtab                    " Usa espacios en lugar de <Tab>s
 
 
 " ------------------------------------------------------------------------------

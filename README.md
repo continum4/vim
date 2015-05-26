@@ -1,1 +1,1 @@
-Configuración Vim
+Configuración Vim en archlinux

@@ -250,6 +250,9 @@ execute pathogen#infect()
 let g:user_emmet_mode='n'    "only enable normal mode functions.
 let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_mode='a'    "enable all function in all mode.
+" let g:user_emmet_leader_key='<C-E>'
+let user_emmet_expandabbr_key = '<c-e>'
+
 
 " ------------------------------------------------------------------------------
 " Funciones personalizadas
@@ -266,3 +269,13 @@ function! Eatchar(pat)
   let c = nr2char(getchar(0))
   return (c =~ a:pat) ? '' : c
 endfunc
+
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
